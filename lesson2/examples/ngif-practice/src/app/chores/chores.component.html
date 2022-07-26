@@ -1,14 +1,18 @@
-<div class="chores">
+<div class="chores" *ngIf = "chores.length > finishedChores.length">
     <h3>Chores</h3>
     <ul>
         <li *ngFor = 'let chore of chores'>{{chore}}</li>
     </ul>
+    <p>"Work harder!"</p> 
 </div>
+
 <hr>
 <div class="doneChores">
+<!-- *ngIf = "chores.length = 0 || finishedChores.length > chores.length ; else No allowance yet."> -->
     <h3>Done Chores</h3>
     <ul>
         <li *ngFor = 'let done of finishedChores'>{{done}}</li>
     </ul>
+    <!-- <p>"No allowance yet."</p> -->
 </div>
 <hr>
