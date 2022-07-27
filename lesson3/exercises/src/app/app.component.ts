@@ -13,10 +13,9 @@ export class AppComponent {
   width = 0;
   message = 'Space shuttle ready for takeoff!';
   takeOffEnabled: boolean = false;
-}
 
 
-function handleTakeOff() {
+handleTakeOff() {
   let result = window.confirm('Are you sure the shuttle is ready for takeoff?');
     if (result) {
       this.color = 'blue';
@@ -26,43 +25,44 @@ function handleTakeOff() {
     }
 }
 
-function handleLanding() {
+handleLanding() {
   let result = window.confirm("The shuttle is landing. Landing gear engaged.")
     if (result) {
       this.color = 'green';
-      this.height = '0';
+      this.height = 0;
       this.message = "The shuttle has landed.";
     }
 }
 
-function missionAbort() {
+missionAbort() {
   let result = window.confirm("Mission abort.");
     if (result) {
       this.color = 'green';
-      this.height = '0';
+      this.height = 0;
       this.message = "Mission aborted.";
     }
 }
 
-function moveRocket(rocketImage, direction) {
+moveRocket(rocketImage, direction) {
    if (direction === 'right') {
       let movement = parseInt(rocketImage.style.left) + 10 + 'px';
       rocketImage.style.left = movement;
       this.width = this.width + 10000;
-   }
+   } else
    if (direction === 'left') {
-    let movement =  parseInt(rocketImage.style.right) - 10 + 'px';
+    let movement =  parseInt(rocketImage.style.right) + 10 + 'px';
     rocketImage.style.right = movement;
-    this.width = this.width - 10000;
-   }
+    this.width = this.width + 10000;
+   } else
    if (direction === 'up') {
     let movement =  parseInt(rocketImage.style.right) + 10 + 'px';
     rocketImage.style.right = movement;
     this.width = this.height + 10000;
    }
-   if (direction === 'down') {
+   else (direction === 'down') ;{
     let movement =  parseInt(rocketImage.style.right) - 10 + 'px';
     rocketImage.style.right = movement;
     this.width = this.height - 10000;
    }
+}
 }
